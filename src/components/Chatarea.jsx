@@ -1,13 +1,13 @@
 import React from 'react';
+import Messagebubble from './Messagebubble';
 import { Send, Smile, Paperclip } from 'lucide-react';
 
 const Chatarea = () => {
     return (
         <div className='flex-1 flex flex-col bg-slate-950 h-full overflow-hidden'>
             <div className='flex-1 overflow-y-auto p-6 space-y-4 flex flex-col'>
-                <div className="text-slate-500 text-center mt-20 italic font-light">
-                    Secure connection established...
-                </div>      
+                <Messagebubble />
+                    
             </div>
 
             <div className='p-4 bg-slate-900/50 border-t border-slate-800'>

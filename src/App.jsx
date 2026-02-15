@@ -4,6 +4,7 @@ import {useState} from 'react'
 import Sidebar from './components/Sidebar';//new line
 import Header from './components/Header';
 import Chatarea from './components/Chatarea';
+import Messagebubble from './components/Messagebubble';
 const App = ()=>{
   const[isSidebarOpen,setIsSidebarOpen]=useState(true)
   return(
