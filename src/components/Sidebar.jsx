@@ -1,15 +1,19 @@
-import React from 'react';
-import {SquarePen} from 'lucide-react';
+import React,{useState} from 'react';
+import {SquarePen,ArrowLeft,Search,UserPlus,Check,ChevronDown} from 'lucide-react';
 
 const Sidebar = ({isSidebarOpen})=>{
+  //conditional rendering code
+  const[view,setView]=useState('NewChat');
     return(
         <aside
        className={`bg-slate-900 border-r border-slate-800 transition-all duration-300 overflow-hidden flex flex-col
       ${isSidebarOpen ? 'w-100' : 'w-0'}`}
       >
+        {view ==='list' && (
+          <>
         <header className='h-16 border-b flex flex-row px-6 border-slate-800 items-center justify-between'>
           <h1 className='text-3xl '>SHADOW</h1>
-          <button className='p-2 hover:bg-slate-800 rounded-lg transition-colors hover:text-white'>
+          <button onClick={()=>setView('NewChat')} className='p-2 hover:bg-slate-800 rounded-lg transition-colors hover:text-white'>
             <SquarePen size={20} />
           </button>
         </header>
@@ -44,6 +48,42 @@ const Sidebar = ({isSidebarOpen})=>{
               </div>
             </div>
           </div>
+          </>
+          )}
+
+          {view === 'NewChat' && (
+            <>
+            <header className='h-32 border-b bg-slate-900 flex flex-col'>
+              <div className='p-5 gap-3 flex flex-row items-center'>
+                <button onClick={()=>setView('list')}>
+                  <ArrowLeft size={22} />
+                </button>
+                <h1>
+                  New Chat
+                </h1>
+              </div>
+
+              <div className='relative w-full flex justify-center items-center'>
+                {/* The Icon (Pinned to the left) */}
+                  <Search 
+                    className='absolute left-7 text-slate-500'
+                    size={18} 
+                  />
+  
+                {/* The Input Field */}
+              <input 
+              type="text"
+              placeholder="Search name or number..."
+              className='w-90 bg-slate-800 text-slate-200 rounded-lg py-2 pl-10 pr-4
+                outline-none border border-transparent focus:border-blue-600/50 transition-all text-sm'
+              />
+            </div>
+            </header>
+
+            
+            </>
+
+          )}
       </aside>
     );
 };
