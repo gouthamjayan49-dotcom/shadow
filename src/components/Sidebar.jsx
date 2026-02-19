@@ -49,9 +49,11 @@ style={{
 
           {view === 'NewChat' && (
             <>
-            <header className='h-45 border-b border-slate-800 bg-slate-900 flex flex-col gap-2'>
-              <div className='p-3 gap-3 flex flex-row items-center'>
-                <button className='hover:bg-slate-800 p-2 rounded-full' onClick={()=>setView('list')}>
+            <header className='h-45 border-b flex flex-col gap-2'
+            style={{backgroundColor:'var(--bg-item-active)', borderColor:'var(--border-ui)'}}>
+              <div className='p-3 gap-3 flex flex-row items-center'
+              style={{color:'var(--text-primary)'}}>
+                <button className='hover:opacity-70 p-2 rounded-full' onClick={()=>setView('list')}>
                   <ArrowLeft size={22} />
                 </button>
                 <h1>
@@ -62,7 +64,8 @@ style={{
               <div className='relative w-full flex justify-center items-center'>
                 {/* The Icon (Pinned to the left) */}
                   <Search 
-                    className='absolute left-7 text-slate-500'
+                    className='absolute left-7'
+                    style={{color:'var(--text-secondary)'}}
                     size={18} 
                   />
   
@@ -70,12 +73,14 @@ style={{
               <input 
               type="text"
               placeholder="Search name or number..."
-              className='w-90 bg-slate-800 text-slate-200 rounded-lg py-2 pl-10 pr-4
+              className='w-90 rounded-lg py-2 pl-10 pr-4
                 outline-none border border-transparent focus:border-blue-600/50 transition-all text-sm'
+                style={{backgroundColor:'var(--bg-item-hover)', color:'var(--text-primary)'}}
               />
             </div>
-            <div className='p-3 hover:bg-slate-800'>
-              <button className='flex gap-3 p-2'>
+            <div className='p-3 hover:opacity-70'>
+              <button className='flex gap-3 p-2'
+              style={{color:'var(--text-primary)'}}>
               <UserPlus size={22} />
               <h1>New Contact</h1>
               </button>

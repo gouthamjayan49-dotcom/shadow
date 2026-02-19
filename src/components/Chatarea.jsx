@@ -4,12 +4,14 @@ import { Send, Smile, Paperclip } from 'lucide-react';
 
 const Chatarea = () => {
     return (
-        <div className='flex-1 flex flex-col bg-[#F5EDE3] h-full overflow-hidden'>
+        <div className='flex-1 flex flex-col h-full overflow-hidden'
+        style={{backgroundColor:'var(--bg-app)'}}>
+
             <div className='flex-1 overflow-y-auto p-6 space-y-4 flex flex-col
             [&::-webkit-scrollbar]:w-1.5
             [&::-webkit-scrollbar-track]:bg-transparent
-            [&::-webkit-scrollbar-thumb]:bg-[#EDD9C8]
             [&::-webkit-scrollbar-thumb]:rounded-full'
+            style={{scrollbarColor:'var(--scrollbar) transparent'}}
             >
                 <Messagebubble />
                 <Messagebubble />
