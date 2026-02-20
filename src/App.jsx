@@ -1,6 +1,6 @@
 
 import {Menu,X,Search,Phone,Video,MoreVertical,Send,Paperclip,SquarePen} from 'lucide-react';
-import {useState} from 'react'
+import {useState,useEffect} from 'react'
 import Sidebar from './components/Sidebar';//new line
 import Header from './components/Header';
 import Chatarea from './components/Chatarea';
@@ -8,6 +8,10 @@ import Navigationrail from './components/Navigationrail';
 import Messagebubble from './components/Messagebubble';
 const App = ()=>{
   const[isSidebarOpen,setIsSidebarOpen]=useState(true)
+  const[theme, setTheme] = useState('dark')
+  useEffect(()=>{
+  document.documentElement.setAttribute('data-theme', theme)
+}, [theme])
   return(
     <div className='flex h-screen w-screen text-white bg-slate-950 overflow-hidden'>
       <Navigationrail />

@@ -23,15 +23,22 @@ const Chatarea = () => {
                     
             </div>
 
-            <div className='p-4 bg-[#F5EDE3]'>
-                <div className='flex items-center gap-3 bg-[#EDD9C8] rounded-2xl px-4 py-3 border border-slate-700/50'>
-                    <Smile size={22} className='text-slate-400' />
+            <div className='p-4'
+            style={{backgroundColor:'var(--bg-app)'}}>
+                <div className='flex items-center gap-3 rounded-2xl px-4 py-3 border'
+                style={{
+                    backgroundColor:'var(--bg-item-hover)',
+                    borderColor:'var(--border-ui)'
+                }}>
+                    <Smile size={22} style={{color:'var(--text-secondary)'}} />
                     <input 
                         type="text" 
                         placeholder="Message..." 
-                        className='bg-transparent flex-1 outline-none text-[#2D1F1A]'
+                        className='bg-transparent flex-1 outline-none'
+                        style={{color:'var(--text-primary)'}}
                     />
-                    <Send size={19} className='text-[#2D1F1A] cursor-pointer' />
+                    <Send size={19} className='cursor-pointer'
+                    style={{color:'var(--text-primary)'}} />
                 </div>
             </div>
         </div>

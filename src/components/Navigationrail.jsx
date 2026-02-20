@@ -3,7 +3,7 @@ import { MessageSquare,Settings,CircleUser} from 'lucide-react';
 const Navigationrail=()=>{
     return(
        <aside className='flex flex-col h-screen w-16 border-r justify-between overflow-hidden'
-       style={{backgroundColor:'var(--bg-nav)', borderColor:'var(--border-ui)'}}>
+       style={{backgroundColor:'var(--bg-app)', borderColor:'var(--border-ui)'}}>
     {/* TOP SECTION */}
     <div className='flex flex-col gap-8 items-center pt-2'>
         <div className='p-3 rounded-2xl cursor-pointer transition-colors hover:opacity-70'
