@@ -6,12 +6,23 @@ import Header from './components/Header';
 import Chatarea from './components/Chatarea';
 import Navigationrail from './components/Navigationrail';
 import Messagebubble from './components/Messagebubble';
+
+
+
+
 const App = ()=>{
   const[isSidebarOpen,setIsSidebarOpen]=useState(true)
   const[theme, setTheme] = useState('dark')
   useEffect(()=>{
   document.documentElement.setAttribute('data-theme', theme)
 }, [theme])
+
+
+
+
+
+
+
   return(
     <div className='flex h-screen w-screen text-white bg-slate-950 overflow-hidden'>
       <Navigationrail />

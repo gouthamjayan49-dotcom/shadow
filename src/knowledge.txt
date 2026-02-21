@@ -5,3 +5,6 @@ transition-all     -  animates the sidebar to appear or dissaper smoothly
 duration-300   - determinies how fast or slow the sidebar should collapse
 rounded-lg(rounded-large)- used to make the button edges or corners smoother 
 px-6        - padding on the x axis
+
+
+#2E7D32

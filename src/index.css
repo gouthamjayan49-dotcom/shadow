@@ -21,7 +21,7 @@
   --bg-sidebar:#E9E9EB;
   --bg-item-hover: #EBEBEB;
   --bg-item-active: #E1E1E1;
-  --bubble-sent: #2F80ED;
+  --bubble-sent: #0A66C2;
   --bubble-received: #E9E9EB;
   --text-primary: #1A1A1A;
   --text-secondary: #8A8A8E;
@@ -35,10 +35,10 @@
 
 [data-theme="dark"] {
   --bg-app: #000000;
-  --bg-sidebar: #16181C;
+  --bg-sidebar: #000000;
   --bg-item-hover: #1D1F23;
   --bg-item-active: #272A2F;
-  --bubble-sent: #1A3A5C;
+  --bubble-sent: #1d66b9;
   --bubble-received: #1D1F23;
   --text-primary: #E7E9EA;
   --text-secondary: #71767B;
@@ -52,7 +52,7 @@
   --bg-sidebar: #FFE4EC;
   --bg-item-hover: #FFD6E7;
   --bg-item-active: #FFC8DF;
-  --bubble-sent: #FF6B9D;
+  --bubble-sent: #813b52;
   --bubble-received: #FFE4EC;
   --text-primary: #3D1A2E;
   --text-secondary: #B07090;
@@ -66,7 +66,7 @@
   --bg-sidebar: #DFF0DF;
   --bg-item-hover: #C8E6C8;
   --bg-item-active: #B5D5B5;
-  --bubble-sent: #2E7D32;
+  --bubble-sent: #395f3b;
   --bubble-received: #DFF0DF;
   --text-primary: #1B2F1B;
   --text-secondary: #5A7A5A;
