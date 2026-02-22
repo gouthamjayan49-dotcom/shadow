@@ -5,7 +5,7 @@ import Contactslist from './Contactslist';
 
 const Sidebar = ({isSidebarOpen})=>{
   //conditional rendering code
-  const[view,setView]=useState('NewContact');
+  const[view,setView]=useState('list');
     return(
         <aside
        className={`border-r transition-all duration-300 overflow-hidden flex flex-col
@@ -81,7 +81,8 @@ style={{
             </div>
             <div className='p-3 hover:opacity-70'>
               <button className='flex gap-3 p-2'
-              style={{color:'var(--text-primary)'}}>
+              style={{color:'var(--text-primary)'}}
+              onClick={()=>{setView('NewContact')}}>
               <UserPlus size={22} />
               <h1>New Contact</h1>
               </button>
@@ -130,7 +131,7 @@ style={{
         New Contact
       </h1>
     </header>
-
+      
     {/* Form Container */}
     <div className='flex-1 p-6 flex flex-col gap-6'>
 

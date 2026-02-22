@@ -17,6 +17,9 @@ const App = ()=>{
   document.documentElement.setAttribute('data-theme', theme)
 }, [theme])
 
+const[selectedProfile,setSelectedProfile]=useState(true)
+
+
 
 
 
@@ -28,11 +31,14 @@ const App = ()=>{
       <Navigationrail />
 
       
-      <Sidebar isSidebarOpen={isSidebarOpen} />
+      <Sidebar isSidebarOpen={isSidebarOpen}
+      setSelectedProfile={setSelectedProfile} />
       <main className='flex-1 flex flex-col relative'>
         <Header isSidebarOpen={isSidebarOpen} 
-        setIsSidebarOpen={setIsSidebarOpen} />
-        <Chatarea />
+        setIsSidebarOpen={setIsSidebarOpen}
+        selectedProfile={selectedProfile}
+        setSelectedProfile={setSelectedProfile} />
+        <Chatarea selectedProfile={selectedProfile} />
       </main>
 
     </div>
@@ -40,4 +46,4 @@ const App = ()=>{
   )
   
 }
-export default App
+    export default App
