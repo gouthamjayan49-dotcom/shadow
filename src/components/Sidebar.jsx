@@ -4,7 +4,7 @@ import Chatlistitem from './Chatlistitem';
 import Contactslist from './Contactslist';
 import NewContact from './NewContact';
 
-const Sidebar = ({isSidebarOpen,sidebarView, setSidebarView})=>{
+const Sidebar = ({isSidebarOpen,sidebarView, setSidebarView,contacts,activeContact,onSelectContact,onAddContact})=>{
     return(
         <aside
        className={`border-r transition-all duration-300 overflow-hidden flex flex-col
@@ -28,21 +28,14 @@ const Sidebar = ({isSidebarOpen,sidebarView, setSidebarView})=>{
 style={{
    scrollbarColor: 'var(--scrollbar) transparent'
 }}>
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
-            <Chatlistitem />
+            {contacts.map(contact=>(
+              <Chatlistitem
+              key={contact.id}
+              contact={contact}
+              isActive={activeContact?.id=== contact.id}
+              onClick={()=>onSelectContact(contact)} />
+            ))}
+            
           </div>
           </>
           )}
@@ -78,6 +71,7 @@ style={{
                 style={{backgroundColor:'var(--bg-item-hover)', color:'var(--text-primary)'}}
               />
             </div>
+
             <div className='p-3 hover:opacity-70'>
               <button className='flex gap-3 p-2'
               style={{color:'var(--text-primary)'}}

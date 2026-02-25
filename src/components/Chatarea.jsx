@@ -4,7 +4,7 @@ import Contactprofile from './Contactprofile';
 import NewContact from './NewContact';
 import { Send, Smile, Paperclip,ArrowLeft,User,Phone,Check } from 'lucide-react';
 
-const Chatarea = ({ view,setView }) => {
+const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => {
     return (
         <>
         {view === 'chat' &&(
@@ -17,13 +17,20 @@ const Chatarea = ({ view,setView }) => {
             [&::-webkit-scrollbar-thumb]:rounded-full'
             style={{scrollbarColor:'var(--scrollbar) transparent'}}
             >
-                <Messagebubble />
-                <Messagebubble />
-                <Messagebubble />
-                <Messagebubble />
-                <Messagebubble />
-                <Messagebubble />
-                <Messagebubble />
+                {
+                    messages.length==0 ? (
+                        <div className='flex-1 flex items-center justify-center'
+                    style={{ color: 'var(--text-secondary)' }}>
+                    <p className='text-sm'>No messages yet. Say hello! 👋</p>
+                  </div>
+                    ):(
+                        messages.map(msg=>(
+                            <Messagebubble key={msg.id}
+                            message={msg} />
+                        ))
+                    )
+                }
+                
                     
             </div>
 
