@@ -91,19 +91,16 @@ style={{
             scrollbarColor: 'var(--scrollbar) transparent'
             }}>
             
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
-            <Contactslist />
+            {contacts.map(contact => (
+        <Contactslist
+        key={contact.id}
+        contact={contact}
+        onClick={() => {
+            onSelectContact(contact);
+            setSidebarView('list');
+        }}
+    />
+))}
 
             </div>
             </>
@@ -121,7 +118,7 @@ style={{
                 New Contact
             </h1>
         </header>
-        <NewContact />
+        <NewContact onAddContact={onAddContact} />
       </>
 )}
       </aside>

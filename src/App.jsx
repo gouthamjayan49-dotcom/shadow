@@ -91,6 +91,21 @@ const App = ()=>{
     }));
   }
 
+  const handleAddContact = (contact)=>{
+    const newEntry ={
+      id:Date.now(),
+      name:contact.name,
+      phone:contact.phone,
+      about:'',
+      lastMessage:'',
+      time:'',
+      unread:0
+    }
+    setContacts(prev=>[newEntry,...prev]);
+    setSidebarView('list');
+  };
+
+
 
 
 
@@ -109,6 +124,7 @@ const App = ()=>{
       contacts={contacts}
       activeContact={activeContact}
       onSelectContact={handleSelectedContact}
+      onAddContact={handleAddContact}
        />
       <main className='flex-1 flex flex-col relative'>
         <Header view={view} 
@@ -120,7 +136,7 @@ const App = ()=>{
         <Chatarea view={view}
         setView={setView}
         activeContact={activeContact}
-        messages={activeContact ? conversations[activeContact.id] : []}
+        messages={activeContact ? (conversations[activeContact.id] || []) : []}
         onSendMessage={handleSendMessage} />
       </main>
 

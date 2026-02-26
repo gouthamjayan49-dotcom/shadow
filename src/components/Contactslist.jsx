@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Contactslist=()=>{
+const Contactslist=({contact, onClick})=>{
     return(
         <div className='flex flex-row items-center p-4 border-b cursor-pointer hover:opacity-80 transition-colors'
         style={{borderColor:'var(--border-ui)', backgroundColor:'var(--bg-sidebar)'}}>
@@ -17,12 +17,12 @@ const Contactslist=()=>{
               <div className='flex flex-col flex-1 ml-4 gap-2'>
                 {/* The div for holding the contact name */}
                 <div className='leading-tight truncate'>
-                  <h1 style={{color:'var(--text-primary)'}}>Contact Name</h1>
+                  <h1 style={{color:'var(--text-primary)'}}>{contact.name}</h1>
                 </div>
                 {/* The div for holding the last chat */}
                 <div className='leading-tight truncate'>
                   <p className='text-xs' style={{color:'var(--text-secondary)'}}>
-                    This is the bio of the person</p>
+                  {contact.about}</p>
                 </div>
 
               </div>

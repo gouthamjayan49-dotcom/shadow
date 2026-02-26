@@ -1,6 +1,35 @@
-import React from 'react'
+import React,{useState} from 'react'
 import { User, Phone, Check } from 'lucide-react';
-const NewContact = ({})=>{
+
+
+
+
+const NewContact = ({onAddContact})=>{
+
+  const[firstName,setFirstName]=useState('');
+  const[secondName,setSecondName]=useState('');
+  const[countryCode,setCountryCode]=useState('+91');
+  const[phoneNumber,setPhoneNumber]=useState('');
+ 
+  const handleSave=()=>{
+    if(!firstName.trim() || !phoneNumber.trim()){
+      alert('please Enter a name and a phone number!');
+      return;
+    }
+    onAddContact({
+      name:`${firstName} ${secondName}`.trim(),
+      phone:`${countryCode} ${phoneNumber}`
+    });
+    setFirstName('');
+    setSecondName('');
+    setPhoneNumber('');
+  };
+
+
+
+
+
+
     return(
         <div className='flex flex-col h-full' style={{ backgroundColor: 'var(--bg-app)' }}>
       
@@ -21,6 +50,8 @@ const NewContact = ({})=>{
           <input
             type="text"
             placeholder="First Name"
+            value={firstName}
+            onChange={e=>setFirstName(e.target.value)}
             className="outline-none bg-transparent w-full text-sm"
             style={{ color: 'var(--text-primary)' }}
           />
@@ -29,6 +60,8 @@ const NewContact = ({})=>{
           <input
             type="text"
             placeholder="Last Name (Optional)"
+            value={secondName}
+            onChange={e=>setSecondName(e.target.value)}
             className="outline-none bg-transparent w-full text-sm"
             style={{ color: 'var(--text-primary)' }}
           />
@@ -39,6 +72,8 @@ const NewContact = ({})=>{
       <div className="flex items-center gap-3 border-b pb-2" style={{ borderColor: 'var(--border-ui)' }}>
         <Phone size={20} style={{ color: 'var(--text-secondary)' }} />
         <select
+        value={countryCode}
+        onChange={e=>setCountryCode(e.target.value)}
           className="outline-none bg-transparent text-sm pr-1"
           style={{ color: 'var(--text-primary)' }}
         >
@@ -67,6 +102,8 @@ const NewContact = ({})=>{
         <input
           type="tel"
           placeholder="Phone Number"
+          value={phoneNumber}
+          onChange={e=>setPhoneNumber(e.target.value)}
           className="outline-none bg-transparent w-full text-sm"
           style={{ color: 'var(--text-primary)' }}
         />
@@ -77,7 +114,7 @@ const NewContact = ({})=>{
         <button
           className="p-3 rounded-full transition-opacity hover:opacity-70"
           style={{ backgroundColor: 'var(--bg-item-hover)' }}
-          onClick={() => { /* handle save */ }}
+          onClick={handleSave}
         >
           <Check size={22} style={{ color: 'var(--text-primary)' }} />
         </button>
