@@ -89,13 +89,16 @@ const App = ()=>{
       ...prev,
       [activeContact.id]: [...(prev[activeContact.id] || []), newMessage],
     }));
-    setContacts(prev=>
-      prev.map(c=>
-        c.id===activeContact.id
-        ? {...c,lastMessage:text.trim(),time:'just now'}
-        :c
-      )
-    )
+    setContacts(prev => {
+  const updated = prev.map(c =>
+    c.id === activeContact.id
+      ? { ...c, lastMessage: text.trim(), time: 'just now' }
+      : c
+  );
+  const moved = updated.find(c => c.id === activeContact.id);
+  const rest = updated.filter(c => c.id !== activeContact.id);
+  return [moved, ...rest];
+});
   }
 
   const handleAddContact = (contact)=>{

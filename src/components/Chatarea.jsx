@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useRef,useEffect} from 'react';
 import Messagebubble from './Messagebubble';
 import Contactprofile from './Contactprofile';
 import NewContact from './NewContact';
@@ -9,8 +9,12 @@ const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => 
     const handleSend=()=>{
         onSendMessage(inputText);
         setInputText('');
-
     }
+
+    const bottomRef = useRef(null);
+    useEffect(()=>{
+        bottomRef.current?.scrollIntoView({behavior:'smooth'});
+    },[messages])
     return (
         <>
         {view === 'chat' &&(
@@ -37,7 +41,7 @@ const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => 
                     )
                 }
                 
-                    
+                 <div ref={bottomRef} />   
             </div>
 
             <div className='p-4'
