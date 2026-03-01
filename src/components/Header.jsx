@@ -1,7 +1,7 @@
 import React from 'react';
 import { Menu, X ,Pen,ArrowLeft} from 'lucide-react';
 
-const Header = ({ isSidebarOpen, setIsSidebarOpen,view,setView}) => {
+const Header = ({ isSidebarOpen, setIsSidebarOpen,view,setView,activeContact}) => {
     
     return (
         
@@ -18,7 +18,7 @@ const Header = ({ isSidebarOpen, setIsSidebarOpen,view,setView}) => {
             >
                 {isSidebarOpen ? <X size={20} /> : <Menu size={20} />}
             </button>
-            <h1 className="font-medium text-lg" style={{color:'var(--text-primary)'}}>cipher Chat</h1>
+            <h1 className="font-medium text-lg" style={{color:'var(--text-primary)'}}>{activeContact?.name || 'CiperNet'}</h1>
             </>
             )}
 

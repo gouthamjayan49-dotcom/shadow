@@ -72,9 +72,42 @@ const Chatarea = ({ view, setView, activeContact, messages, onSendMessage }) => 
             <Contactprofile />
         )}
 
-        {view==='edit' &&(
-            <NewContact setView={setView} />
-        )}
+  {view === 'edit' && (
+  <div className='flex-1 flex flex-col p-6 gap-6'
+    style={{ backgroundColor: 'var(--bg-app)' }}>
+
+    {/* Current Username — read only */}
+    <div className="flex items-center gap-3 border-b pb-2"
+      style={{ borderColor: 'var(--border-ui)' }}>
+      <p className='text-xs font-medium' style={{ color: 'var(--text-secondary)' }}>Username</p>
+      <p className='text-sm' style={{ color: 'var(--text-primary)' }}>
+        {activeContact?.name}
+      </p>
+    </div>
+
+    {/* Nickname — editable */}
+    <div className="flex items-center gap-3 border-b pb-2"
+      style={{ borderColor: 'var(--border-ui)' }}>
+      <p className='text-xs font-medium' style={{ color: 'var(--text-secondary)' }}>Nickname</p>
+      <input
+        type="text"
+        placeholder="Add a nickname..."
+        className="outline-none bg-transparent w-full text-sm"
+        style={{ color: 'var(--text-primary)' }}
+      />
+    </div>
+
+    {/* Save Button */}
+    <div className="flex justify-end">
+      <button
+        className="p-3 rounded-full transition-opacity hover:opacity-70"
+        style={{ backgroundColor: 'var(--bg-item-hover)' }}>
+        <Check size={22} style={{ color: 'var(--text-primary)' }} />
+      </button>
+    </div>
+
+  </div>
+)}
         </>
     );
 };

@@ -20,7 +20,7 @@ const NewContact = ({ onAddContact,contacts }) => {
     setNickname('');
   };
 
-  const suggestions=contacts.filter(c=>
+  const suggestions=(contacts || []).filter(c=>
     c.name.toLowerCase().includes(username.toLowerCase())
   );
 
